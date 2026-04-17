@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bash /Users/batuklkn/.claude/plugins/cache/superpowers-dev/superpowers/5.0.7/scripts/start-server.sh --project-dir /Users/batuklkn/Desktop/glasklar)",
+      "Bash(bash /Users/batuklkn/.claude/plugins/cache/superpowers-dev/superpowers/5.0.7/skills/brainstorming/scripts/start-server.sh --project-dir /Users/batuklkn/Desktop/glasklar)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
+    ]
+  }
+}
