@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+:root {
+  --navy: #1e3a5f;
+  --navy-mid: #2d6a9f;
+  --cyan: #00b4d8;
+  --amber: #f59e0b;
+  --amber-dark: #e07a00;
+  --white: #ffffff;
+  --gray-light: #f0f4f8;
+  --text: #333333;
+  --text-muted: #666666;
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+@theme inline {
+  --color-background: var(--white);
+  --color-foreground: var(--text);
+  --color-navy: var(--navy);
+  --color-navy-mid: var(--navy-mid);
+  --color-cyan: var(--cyan);
+  --color-amber: var(--amber);
+  --color-amber-dark: var(--amber-dark);
+  --color-gray-light: var(--gray-light);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --font-heading: var(--font-plus-jakarta);
+  --font-sans: var(--font-inter);
+  --radius-card: 14px;
+}
+
+@utility py-section {
+  padding-top: clamp(3rem, 5vw, 5rem);
+  padding-bottom: clamp(3rem, 5vw, 5rem);
+}
+
+@utility rounded-card {
+  border-radius: var(--radius-card);
+}
+
+@utility shadow-card {
+  box-shadow: var(--shadow-card);
+}
+
+@utility field {
+  width: 100%;
+  border-radius: 0.65rem;
+  border: 1px solid #d7dee8;
+  background: #fff;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.95rem;
+  color: #1d2530;
+}
+
+@utility field-focus {
+  outline: none;
+  border-color: color-mix(in srgb, var(--cyan) 58%, white);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--cyan) 18%, white);
+}
+
+* {
+  border-color: transparent;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  color: var(--text);
+  background: var(--white);
+}
+
+input,
+select,
+textarea {
+  @apply field;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  @apply field-focus;
+}
+
+@layer base {
+  a {
+    color: inherit;
+  }
+}
