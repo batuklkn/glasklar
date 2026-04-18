@@ -47,11 +47,12 @@ export function MobileNav() {
 
       <aside
         className={cn(
-          "fixed top-0 right-0 z-50 flex h-full w-[88%] max-w-sm flex-col bg-white shadow-2xl transition-transform md:hidden",
+          "fixed inset-y-0 right-0 z-50 w-[88%] max-w-sm bg-white shadow-2xl transition-transform duration-300 md:hidden",
           open ? "translate-x-0" : "translate-x-full",
         )}
       >
-        <div className="flex shrink-0 items-center justify-between border-b border-slate-100 px-6 py-4">
+        {/* Header */}
+        <div className="absolute inset-x-0 top-0 flex items-center justify-between border-b border-slate-100 bg-white px-6 py-4">
           <p className="font-heading text-lg font-extrabold text-navy">Navigation</p>
           <button
             aria-label="Menü schließen"
@@ -63,7 +64,8 @@ export function MobileNav() {
           </button>
         </div>
 
-        <div className="flex-1 overflow-y-auto px-6 py-5">
+        {/* Scrollable nav links */}
+        <div className="absolute inset-x-0 bottom-28 top-16 overflow-y-auto px-6 py-5">
           <nav className="space-y-1">
             {navLinks.map((link) => (
               <Link
@@ -96,7 +98,8 @@ export function MobileNav() {
           </nav>
         </div>
 
-        <div className="shrink-0 grid gap-3 border-t border-slate-100 px-6 py-5">
+        {/* Bottom CTAs */}
+        <div className="absolute inset-x-0 bottom-0 grid gap-3 border-t border-slate-100 bg-white px-6 py-5">
           <Button asChild className="w-full" size="lg" variant="amber">
             <Link href="/kontakt">Angebot anfordern</Link>
           </Button>
