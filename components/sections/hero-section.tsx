@@ -10,15 +10,15 @@ import { Container } from "@/components/ui/container";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[62svh] overflow-hidden pt-28 pb-16 text-white">
+    <section className="relative min-h-[62svh] overflow-hidden text-white">
       <div
         aria-hidden
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-top"
         style={{ backgroundImage: "url('/images/hero-team.webp')" }}
       />
-      <div className="absolute inset-0 bg-linear-to-r from-navy/95 via-navy/80 to-navy/40" />
+      <div className="absolute inset-0 bg-linear-to-r from-navy/95 via-navy/85 to-navy/50" />
 
-      <Container className="relative z-10">
+      <Container className="relative z-10 flex min-h-[62svh] flex-col justify-end pb-16 pt-28">
         <motion.p
           animate={{ opacity: 1, y: 0 }}
           className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-cyan"
