@@ -62,9 +62,9 @@ export default function ContactPage() {
             </article>
 
             <article className="rounded-card bg-navy p-6 text-white shadow-card">
-              <h3 className="font-heading text-xl font-bold">Hinweis für Geschaeftskunden</h3>
+              <h3 className="font-heading text-xl font-bold">Hinweis für Geschäftskunden</h3>
               <p className="mt-3 text-white/80">
-                Für B2B-Kunden bieten wir individuelle Rahmenvertraege mit klaren Leistungskennzahlen.
+                Für B2B-Kunden bieten wir individuelle Rahmenverträge mit klaren Leistungskennzahlen.
               </p>
             </article>
           </aside>

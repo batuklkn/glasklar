@@ -17,7 +17,14 @@
       "mcp__claude_ai_Vercel__list_projects",
       "mcp__claude_ai_Vercel__get_deployment_build_logs",
       "Bash(git -C /Users/batuklkn/Desktop/glasklar push upstream main)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(git -C /Users/batuklkn/Desktop/glasklar add components/layout/mobile-nav.tsx)",
+      "Bash(git commit -m 'Fix mobile nav: absolute positioning for reliable header/scroll/footer layout *)",
+      "Bash(git commit -m 'Mobile nav: h-dvh + flex-col + min-h-0 for reliable mobile layout *)",
+      "Bash(git commit -m 'Mobile nav redesign: navy header, icons on services, logo footer *)",
+      "Bash(git commit -m 'Mobile nav: swap header/footer colors, larger logo *)",
+      "Bash(git -C /Users/batuklkn/Desktop/glasklar add -A)",
+      "Bash(git commit -m 'Fix remaining German umlauts: Geschäftskunden, Rahmenverträge, täglich, Kontinuität, gleichmäßig *)"
     ]
   }
 }
