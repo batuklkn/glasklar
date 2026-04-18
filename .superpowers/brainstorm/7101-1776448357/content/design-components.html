@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Komponenten</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: #f0f4f8; color: #1e3a5f; padding: 24px; }
+  h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 22px; font-weight: 800; margin-bottom: 6px; }
+  .subtitle { color: #666; font-size: 14px; margin-bottom: 28px; }
+  h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; font-weight: 700; color: #00b4d8; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 14px; margin-top: 28px; }
+
+  .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+  .grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; }
+
+  /* Service Card */
+  .service-card {
+    background: #1e3a5f;
+    border-radius: 12px;
+    overflow: hidden;
+    color: white;
+    transition: transform 0.2s;
+  }
+  .service-card:hover { transform: translateY(-3px); }
+  .service-card-img {
+    background: linear-gradient(135deg, #2d6a9f, #1e3a5f);
+    height: 80px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 32px;
+  }
+  .service-card-body { padding: 14px; }
+  .service-card-body h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+  .service-card-body ul { font-size: 11px; opacity: 0.75; list-style: none; line-height: 2; }
+  .service-card-body ul li::before { content: '✓ '; color: #00b4d8; }
+  .service-card-link { display: block; margin-top: 10px; font-size: 11px; color: #00b4d8; font-weight: 600; }
+
+  /* Review Card */
+  .review-card {
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    border-left: 3px solid #00b4d8;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .stars { color: #fbbc05; font-size: 14px; margin-bottom: 8px; }
+  .review-text { font-size: 13px; color: #444; font-style: italic; line-height: 1.6; margin-bottom: 10px; }
+  .reviewer { display: flex; align-items: center; gap: 8px; }
+  .reviewer-avatar { width: 32px; height: 32px; border-radius: 50%; background: #e3f2fd; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+  .reviewer-name { font-size: 12px; font-weight: 600; color: #1e3a5f; }
+  .reviewer-source { font-size: 10px; color: #999; }
+  .google-badge { display: flex; align-items: center; gap: 4px; font-size: 10px; color: #666; }
+  .google-g { width: 14px; height: 14px; background: #4285f4; border-radius: 2px; display: inline-flex; align-items: center; justify-content: center; color: white; font-size: 9px; font-weight: 700; }
+
+  /* CTA Button variants */
+  .btn { display: inline-block; border-radius: 6px; font-weight: 700; cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif; }
+  .btn-primary { background: #f59e0b; color: #000; padding: 12px 24px; font-size: 14px; }
+  .btn-secondary { background: #1e3a5f; color: #fff; padding: 12px 24px; font-size: 14px; }
+  .btn-outline { border: 2px solid #00b4d8; color: #00b4d8; padding: 10px 22px; font-size: 14px; background: transparent; }
+  .btn-phone { background: #00b4d8; color: #fff; padding: 12px 24px; font-size: 14px; }
+
+  /* Contact Form */
+  .form-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  }
+  .form-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; font-weight: 800; color: #1e3a5f; margin-bottom: 4px; }
+  .form-subtitle { font-size: 12px; color: #666; margin-bottom: 16px; }
+  .form-steps { display: flex; gap: 0; margin-bottom: 20px; }
+  .form-step { flex: 1; text-align: center; font-size: 10px; font-weight: 600; padding: 6px; background: #f0f4f8; color: #999; border-right: 1px solid #e0e0e0; }
+  .form-step:first-child { border-radius: 6px 0 0 6px; }
+  .form-step:last-child { border-radius: 0 6px 6px 0; border-right: none; }
+  .form-step.active { background: #1e3a5f; color: white; }
+  .form-step.done { background: #00b4d8; color: white; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+  .form-field { display: flex; flex-direction: column; gap: 4px; }
+  .form-field label { font-size: 11px; font-weight: 600; color: #1e3a5f; }
+  .form-field input, .form-field select { border: 1.5px solid #dce8f0; border-radius: 6px; padding: 8px 10px; font-size: 12px; color: #333; font-family: 'Inter', sans-serif; width: 100%; }
+  .form-field input:focus, .form-field select:focus { border-color: #00b4d8; outline: none; }
+
+  /* Trust badge strip */
+  .trust-strip { background: #1e3a5f; border-radius: 12px; padding: 16px 20px; display: flex; justify-content: space-around; color: white; }
+  .trust-item { text-align: center; }
+  .trust-number { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 24px; font-weight: 800; color: #00b4d8; }
+  .trust-label { font-size: 11px; opacity: 0.7; margin-top: 2px; }
+</style>
+</head>
+<body>
+
+<h1>Design · Abschnitt 4 / 5 — Schlüssel-Komponenten</h1>
+<p class="subtitle">Die wichtigsten wiederverwendbaren Bausteine der Website</p>
+
+<!-- Service Cards -->
+<h2>① Service-Karten</h2>
+<div class="grid-3">
+  <div class="service-card">
+    <div class="service-card-img">🏢</div>
+    <div class="service-card-body">
+      <h3>Unterhaltsreinigung</h3>
+      <ul>
+        <li>Individuelle Konzepte</li>
+        <li>Flexible Intervalle</li>
+        <li>Qualifiziertes Personal</li>
+      </ul>
+      <span class="service-card-link">Mehr erfahren →</span>
+    </div>
+  </div>
+  <div class="service-card">
+    <div class="service-card-img">🪟</div>
+    <div class="service-card-body">
+      <h3>Glasreinigung</h3>
+      <ul>
+        <li>Streifenfreie Ergebnisse</li>
+        <li>Alle Glasarten</li>
+        <li>Moderne Technik</li>
+      </ul>
+      <span class="service-card-link">Mehr erfahren →</span>
+    </div>
+  </div>
+  <div class="service-card">
+    <div class="service-card-img">🏗️</div>
+    <div class="service-card-body">
+      <h3>Bauendreinigung</h3>
+      <ul>
+        <li>Vor-Ort-Besichtigung</li>
+        <li>Terminflexibel</li>
+        <li>Jahrelange Erfahrung</li>
+      </ul>
+      <span class="service-card-link">Mehr erfahren →</span>
+    </div>
+  </div>
+</div>
+
+<!-- Google Review Cards -->
+<h2>② Google-Bewertungs-Karten</h2>
+<div class="grid-3">
+  <div class="review-card">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+      <div class="stars">★★★★★</div>
+      <div class="google-badge"><div class="google-g">G</div> Google</div>
+    </div>
+    <div class="review-text">"Sehr zuverlässig und immer pünktlich. Unsere Büroräume werden seit zwei Jahren von GlasKlar gereinigt — wir sind rundum zufrieden!"</div>
+    <div class="reviewer">
+      <div class="reviewer-avatar">👩</div>
+      <div><div class="reviewer-name">Maria K.</div><div class="reviewer-source">Geschäftskundin · vor 2 Wochen</div></div>
+    </div>
+  </div>
+  <div class="review-card">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+      <div class="stars">★★★★★</div>
+      <div class="google-badge"><div class="google-g">G</div> Google</div>
+    </div>
+    <div class="review-text">"Professionell, gründlich und faire Preise. Die Grundreinigung unserer Praxis war einwandfrei. Klare Empfehlung!"</div>
+    <div class="reviewer">
+      <div class="reviewer-avatar">👨</div>
+      <div><div class="reviewer-name">Thomas B.</div><div class="reviewer-source">Unternehmenskunde · vor 1 Monat</div></div>
+    </div>
+  </div>
+  <div class="review-card">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+      <div class="stars">★★★★★</div>
+      <div class="google-badge"><div class="google-g">G</div> Google</div>
+    </div>
+    <div class="review-text">"Herr Kaleli und sein Team arbeiten sehr sorgfältig. Immer freundlich, immer zuverlässig. Seit Jahren unser Partner."</div>
+    <div class="reviewer">
+      <div class="reviewer-avatar">👩</div>
+      <div><div class="reviewer-name">Sandra M.</div><div class="reviewer-source">Stammkundin · vor 3 Wochen</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA Buttons -->
+<h2>③ Buttons & CTAs</h2>
+<div style="background:white;border-radius:12px;padding:20px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+  <div class="btn btn-primary">Kostenloses Angebot →</div>
+  <div class="btn btn-phone">📞 Jetzt anrufen</div>
+  <div class="btn btn-secondary">Mehr erfahren</div>
+  <div class="btn btn-outline">Alle Dienstleistungen</div>
+</div>
+
+<!-- 3-Step Form -->
+<h2>④ "Kostenloses Angebot" — 3-Schritt-Formular</h2>
+<div class="grid-2">
+  <div class="form-card">
+    <div class="form-title">Kostenloses Angebot anfordern</div>
+    <div class="form-subtitle">Antwort innerhalb von 24 Stunden · Unverbindlich</div>
+    <div class="form-steps">
+      <div class="form-step done">✓ Service</div>
+      <div class="form-step done">✓ Objekt</div>
+      <div class="form-step active">3 · Kontakt</div>
+    </div>
+    <div class="form-row">
+      <div class="form-field">
+        <label>Vorname *</label>
+        <input type="text" placeholder="Max">
+      </div>
+      <div class="form-field">
+        <label>Nachname *</label>
+        <input type="text" placeholder="Mustermann">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-field">
+        <label>Telefon *</label>
+        <input type="text" placeholder="0176 …">
+      </div>
+      <div class="form-field">
+        <label>E-Mail</label>
+        <input type="email" placeholder="max@firma.de">
+      </div>
+    </div>
+    <div class="form-field" style="margin-bottom:14px;">
+      <label>Wunschtermin</label>
+      <input type="text" placeholder="z. B. nächste Woche, flexibel …">
+    </div>
+    <div class="btn btn-primary" style="width:100%;text-align:center;padding:13px;border-radius:8px;cursor:pointer;">Angebot anfordern →</div>
+    <div style="font-size:10px;color:#999;text-align:center;margin-top:8px;">🔒 Ihre Daten sind sicher · Keine Weitergabe an Dritte</div>
+  </div>
+
+  <!-- Trust Strip -->
+  <div style="display:flex;flex-direction:column;gap:14px;">
+    <div class="trust-strip">
+      <div class="trust-item"><div class="trust-number">10+</div><div class="trust-label">Jahre Erfahrung</div></div>
+      <div class="trust-item"><div class="trust-number">4,9⭐</div><div class="trust-label">Google Rating</div></div>
+      <div class="trust-item"><div class="trust-number">200+</div><div class="trust-label">Kunden</div></div>
+    </div>
+    <div style="background:white;border-radius:12px;padding:16px;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;color:#1e3a5f;margin-bottom:10px;">Oder direkt Kontakt aufnehmen:</div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="display:flex;align-items:center;gap:10px;font-size:13px;">
+          <div style="background:#e3f2fd;border-radius:8px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;">📞</div>
+          <div><div style="font-weight:600;color:#1e3a5f;">09342 3029778</div><div style="font-size:11px;color:#666;">Mo–Fr 7:00–18:00 Uhr</div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:13px;">
+          <div style="background:#e3f2fd;border-radius:8px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;">✉</div>
+          <div><div style="font-weight:600;color:#00b4d8;">glasklar@gmail.com</div><div style="font-size:11px;color:#666;">Antwort innerhalb 24h</div></div>
+        </div>
+      </div>
+    </div>
+    <div style="background:#fff8e1;border:1px solid #f59e0b;border-radius:12px;padding:14px;font-size:12px;color:#333;">
+      <strong style="color:#1e3a5f;">💡 Tipp:</strong> Für Geschäftskunden bieten wir individuelle Rahmenverträge und regelmäßige Reinigungsintervalle an.
+    </div>
+  </div>
+</div>
+
+<p style="font-family:'Inter',sans-serif;color:#888;font-size:13px;text-align:center;margin-top:28px;">Passen diese Komponenten? Dann weiter zu Abschnitt 5: Tech-Architektur.</p>
+
+</body>
+</html>

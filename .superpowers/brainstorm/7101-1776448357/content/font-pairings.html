@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Font Pairings</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Inter:wght@400;500;600&family=Syne:wght@700;800&family=Manrope:wght@400;600;800&family=DM+Sans:wght@400;500;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: #f4f6f9; color: #1e3a5f; padding: 24px; }
+  h1 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+  .subtitle { color: #666; font-size: 14px; margin-bottom: 24px; }
+
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .card:hover { border-color: #00b4d8; box-shadow: 0 4px 20px rgba(0,180,216,0.15); }
+  .card.selected { border-color: #00b4d8; box-shadow: 0 4px 20px rgba(0,180,216,0.25); }
+
+  .card-preview {
+    background: linear-gradient(120deg, #1e3a5f 55%, #2d6a9f);
+    padding: 20px;
+    color: white;
+  }
+  .card-label {
+    color: #00b4d8;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    font-family: 'Inter', sans-serif;
+  }
+  .card-body { padding: 14px 16px; }
+  .tag { font-size: 11px; color: #888; margin-bottom: 6px; font-family: 'Inter', sans-serif; }
+  .card-body h3 { font-size: 15px; color: #1e3a5f; margin-bottom: 4px; font-family: 'Inter', sans-serif; font-weight: 700; }
+  .card-body p { font-size: 12px; color: #666; font-family: 'Inter', sans-serif; line-height: 1.5; }
+
+  .trust-bar {
+    background: white;
+    border-top: 2px solid #00b4d8;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+    padding: 8px;
+    gap: 4px;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    color: #666;
+  }
+  .trust-bar strong { display: block; font-size: 13px; color: #1e3a5f; }
+
+  .cta-row { display: flex; gap: 8px; margin-top: 12px; }
+  .btn-primary {
+    background: #f59e0b; color: #000; font-size: 10px; font-weight: 700;
+    padding: 6px 12px; border-radius: 4px; font-family: 'Inter', sans-serif;
+  }
+  .btn-secondary {
+    background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
+    color: #fff; font-size: 10px; padding: 6px 10px; border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .selected-indicator {
+    display: none;
+    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+    background: #00b4d8; color: white; padding: 10px 24px;
+    border-radius: 24px; font-weight: 600; font-size: 14px;
+    box-shadow: 0 4px 20px rgba(0,180,216,0.4);
+  }
+  .selected-indicator.visible { display: block; }
+</style>
+</head>
+<body>
+
+<h1>Schriftarten-Paarungen</h1>
+<p class="subtitle">Drei moderne Sans-Serif-Kombinationen — klicke auf eine, um sie auszuwählen</p>
+
+<div class="cards">
+
+  <!-- Option A: Plus Jakarta Sans + Inter -->
+  <div class="card" onclick="selectCard(this, 'A — Plus Jakarta Sans + Inter')">
+    <div class="card-preview">
+      <div class="card-label">Gebäudereinigung · Wertheim</div>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:22px; font-weight:800; line-height:1.2; margin-bottom:6px;">
+        Sauberkeit,<br>die begeistert.
+      </div>
+      <div style="font-family:'Inter',sans-serif; font-size:11px; opacity:0.75; margin-bottom:10px;">
+        Professionell · Zuverlässig · Seit über 10 Jahren
+      </div>
+      <div class="cta-row">
+        <div class="btn-primary" style="font-family:'Plus Jakarta Sans',sans-serif;">Angebot anfordern →</div>
+        <div class="btn-secondary">📞 Anrufen</div>
+      </div>
+    </div>
+    <div class="trust-bar">
+      <div><strong style="font-family:'Plus Jakarta Sans',sans-serif;">10+</strong> Jahre</div>
+      <div><strong style="font-family:'Plus Jakarta Sans',sans-serif;">4,9⭐</strong> Google</div>
+      <div><strong style="font-family:'Plus Jakarta Sans',sans-serif;">200+</strong> Kunden</div>
+    </div>
+    <div class="card-body">
+      <div class="tag">A · Headlines: Plus Jakarta Sans 800 · Body: Inter 400</div>
+      <h3>Modern & Rund</h3>
+      <p>Freundlich-professionell. Leicht gerundete Formen wirken einladend — ideal für B2B und B2C gleichzeitig.</p>
+    </div>
+  </div>
+
+  <!-- Option B: Syne + Inter -->
+  <div class="card" onclick="selectCard(this, 'B — Syne + Inter')">
+    <div class="card-preview">
+      <div class="card-label">Gebäudereinigung · Wertheim</div>
+      <div style="font-family:'Syne',sans-serif; font-size:22px; font-weight:800; line-height:1.2; margin-bottom:6px;">
+        Sauberkeit,<br>die begeistert.
+      </div>
+      <div style="font-family:'Inter',sans-serif; font-size:11px; opacity:0.75; margin-bottom:10px;">
+        Professionell · Zuverlässig · Seit über 10 Jahren
+      </div>
+      <div class="cta-row">
+        <div class="btn-primary" style="font-family:'Syne',sans-serif;">Angebot anfordern →</div>
+        <div class="btn-secondary">📞 Anrufen</div>
+      </div>
+    </div>
+    <div class="trust-bar">
+      <div><strong style="font-family:'Syne',sans-serif;">10+</strong> Jahre</div>
+      <div><strong style="font-family:'Syne',sans-serif;">4,9⭐</strong> Google</div>
+      <div><strong style="font-family:'Syne',sans-serif;">200+</strong> Kunden</div>
+    </div>
+    <div class="card-body">
+      <div class="tag">B · Headlines: Syne 800 · Body: Inter 400</div>
+      <h3>Bold & Architektonisch ⭐</h3>
+      <p>Kantig, kraftvoll, unverwechselbar. Syne ist sehr modern und auffällig — hebt GlasKlar klar von der Konkurrenz ab.</p>
+    </div>
+  </div>
+
+  <!-- Option C: Outfit + DM Sans -->
+  <div class="card" onclick="selectCard(this, 'C — Outfit + DM Sans')">
+    <div class="card-preview">
+      <div class="card-label">Gebäudereinigung · Wertheim</div>
+      <div style="font-family:'Outfit',sans-serif; font-size:22px; font-weight:800; line-height:1.2; margin-bottom:6px;">
+        Sauberkeit,<br>die begeistert.
+      </div>
+      <div style="font-family:'DM Sans',sans-serif; font-size:11px; opacity:0.75; margin-bottom:10px;">
+        Professionell · Zuverlässig · Seit über 10 Jahren
+      </div>
+      <div class="cta-row">
+        <div class="btn-primary" style="font-family:'Outfit',sans-serif;">Angebot anfordern →</div>
+        <div class="btn-secondary">📞 Anrufen</div>
+      </div>
+    </div>
+    <div class="trust-bar">
+      <div><strong style="font-family:'Outfit',sans-serif;">10+</strong> Jahre</div>
+      <div><strong style="font-family:'Outfit',sans-serif;">4,9⭐</strong> Google</div>
+      <div><strong style="font-family:'Outfit',sans-serif;">200+</strong> Kunden</div>
+    </div>
+    <div class="card-body">
+      <div class="tag">C · Headlines: Outfit 800 · Body: DM Sans 400</div>
+      <h3>Geometrisch & Clean</h3>
+      <p>Schlank, geometrisch, sehr lesbar. Wirkt modern und aufgeräumt — professionell ohne zu kalt zu sein.</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="selected-indicator" id="indicator"></div>
+
+<script>
+function selectCard(el, label) {
+  document.querySelectorAll('.card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  const ind = document.getElementById('indicator');
+  ind.textContent = '✓ Ausgewählt: ' + label;
+  ind.classList.add('visible');
+
+  // Record for state tracking
+  if (window.__superRecord) window.__superRecord(label);
+}
+</script>
+
+</body>
+</html>
