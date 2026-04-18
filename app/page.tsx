@@ -1,13 +1,11 @@
 import Script from "next/script";
 
 import { AboutTeaser } from "@/components/sections/about-teaser";
-import { BlogPreview } from "@/components/sections/blog-preview";
 import { ConversionBanner } from "@/components/sections/conversion-banner";
 import { HeroSection } from "@/components/sections/hero-section";
 import { ReviewsCarousel } from "@/components/sections/reviews-carousel";
 import { ServicesGrid } from "@/components/sections/services-grid";
 import { TrustBar } from "@/components/sections/trust-bar";
-import { getLatestPosts } from "@/lib/blog";
 import { createMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site";
 
@@ -19,7 +17,6 @@ export const metadata = createMetadata({
 });
 
 export default async function HomePage() {
-  const latestPosts = await getLatestPosts(3);
 
   const localBusinessSchema = {
     "@context": "https://schema.org",
@@ -61,7 +58,6 @@ export default async function HomePage() {
       <ReviewsCarousel />
       <AboutTeaser />
       <ConversionBanner />
-      <BlogPreview posts={latestPosts} />
     </>
   );
 }

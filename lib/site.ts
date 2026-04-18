@@ -23,6 +23,5 @@ export const siteConfig = {
 export const navLinks = [
   { href: "/dienstleistungen", label: "Dienstleistungen" },
   { href: "/ueber-uns", label: "Über uns" },
-  { href: "/blog", label: "Blog" },
   { href: "/kontakt", label: "Kontakt" },
 ];

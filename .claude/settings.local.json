@@ -24,7 +24,9 @@
       "Bash(git commit -m 'Mobile nav redesign: navy header, icons on services, logo footer *)",
       "Bash(git commit -m 'Mobile nav: swap header/footer colors, larger logo *)",
       "Bash(git -C /Users/batuklkn/Desktop/glasklar add -A)",
-      "Bash(git commit -m 'Fix remaining German umlauts: Geschäftskunden, Rahmenverträge, täglich, Kontinuität, gleichmäßig *)"
+      "Bash(git commit -m 'Fix remaining German umlauts: Geschäftskunden, Rahmenverträge, täglich, Kontinuität, gleichmäßig *)",
+      "Bash(git commit -m 'Mobile nav: thicker divider above logo footer *)",
+      "Bash(git commit -m 'Remove blog: delete app/blog, remove from nav, homepage, sitemap *)"
     ]
   }
 }
