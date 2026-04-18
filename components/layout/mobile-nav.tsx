@@ -115,7 +115,7 @@ export function MobileNav() {
         </div>
 
         {/* Logo footer */}
-        <div className="shrink-0 flex items-center justify-center border-t border-slate-100 bg-white py-4">
+        <div className="shrink-0 flex items-center justify-center border-t-2 border-slate-200 bg-white py-4">
           <Image
             alt="GlasKlar Logo"
             className="h-32 w-auto object-contain"
