@@ -54,15 +54,15 @@ export function MobileNav() {
           open ? "translate-x-0" : "translate-x-full",
         )}
       >
-        {/* Header – navy */}
-        <div className="flex shrink-0 items-center justify-between bg-navy px-6 py-5">
+        {/* Header – light */}
+        <div className="flex shrink-0 items-center justify-between bg-slate-50 px-6 py-5">
           <div>
-            <p className="font-heading text-lg font-extrabold leading-none text-white">GlasKlar</p>
+            <p className="font-heading text-lg font-extrabold leading-none text-navy">GlasKlar</p>
             <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-cyan">Gebäudereinigung</p>
           </div>
           <button
             aria-label="Menü schließen"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-md bg-white/10 text-white hover:bg-white/20"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-slate-200 text-navy hover:bg-slate-100"
             onClick={() => setOpen(false)}
             type="button"
           >
@@ -115,13 +115,13 @@ export function MobileNav() {
         </div>
 
         {/* Logo footer */}
-        <div className="shrink-0 flex items-center justify-center border-t border-slate-100 bg-slate-50 py-4">
+        <div className="shrink-0 flex items-center justify-center border-t border-slate-100 bg-white py-4">
           <Image
             alt="GlasKlar Logo"
-            className="h-20 w-auto object-contain"
-            height={120}
+            className="h-32 w-auto object-contain"
+            height={200}
             src="/images/logo.png"
-            width={120}
+            width={200}
           />
         </div>
       </aside>
